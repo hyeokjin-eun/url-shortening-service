@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>URLShortening</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;900&display=swap" rel="stylesheet">
+    <link href="/css/default.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <section class="shortening-section">
+        <div class="shortening-content">
+            <div class="shortening-content-field">
+                <form action="/authenticate" method="POST">
+                    <div class="shortening-title">
+                        <div class="shortening-title-content-field">
+                            <h1 class="shortening-title-content">URLShortening</h1>
+                        </div>
+                    </div>
+
+                    <div class="shortening-origin-input-field">
+                        <input class="shortening-origin-input" name="origin-url" id="origin-url" placeholder="변경할 URL을 입력해주세요." type="text" value="https://www.musinsa.com/">
+                    </div>
+                    <div class="shortening-button-field">
+                        <button class="shortening-button" id="origin-url-request" type="button">인코딩 URL 변경</button>
+                    </div>
+
+                    <div class="shortening-encoding-input-field">
+                        <input class="shortening-encoding-input" name="encoding-url" id="encoding-url" placeholder="이동할 URL을 입력해주세요." type="text">
+                    </div>
+                    <div class="shortening-button-field">
+                        <button class="shortening-button" id="encoding-url-request" type="button">인코딩 URL 이동</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>
+<script src="/js/main.js"></script>
+<script src="/js/ajax.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+</body>
+</html>
