@@ -1,6 +1,7 @@
 package com.musinsa.urlshortening.config;
 
 import com.musinsa.urlshortening.domain.dto.response.ResponseDto;
+import com.musinsa.urlshortening.domain.exception.OutOfLengthException;
 import com.musinsa.urlshortening.domain.exception.UrlNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -23,5 +24,11 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ResponseDto<String> UrlNotFoundException() {
         return ResponseDto.ERROR("URL을 찾을수 없습니다.");
+    }
+
+    @ExceptionHandler(OutOfLengthException.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    public ResponseDto<String> OutOfLengthException() {
+        return ResponseDto.ERROR("Encoding out of max length Exception");
     }
 }

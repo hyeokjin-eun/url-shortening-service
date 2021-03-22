@@ -5,8 +5,11 @@ import com.musinsa.urlshortening.domain.dto.request.UrlShorteningRequestDto;
 import com.musinsa.urlshortening.domain.dto.response.url.UrlShorteningResponseDto;
 import com.musinsa.urlshortening.domain.entity.Url;
 import com.musinsa.urlshortening.repository.UrlRepository;
-import com.musinsa.urlshortening.service.impl.UrlService;
-import org.junit.jupiter.api.*;
+import com.musinsa.urlshortening.service.impl.UrlServiceImpl;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.mock.web.MockHttpServletRequest;
@@ -20,10 +23,10 @@ import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
 
 @DisplayName("URL Service Test")
-public class UrlServiceTest extends ServiceBaseConfig{
+public class UrlServiceImplTest extends ServiceBaseConfig{
 
     @InjectMocks
-    private UrlService urlService;
+    private UrlServiceImpl urlServiceImpl;
 
     @Mock
     private UrlRepository urlRepository;
@@ -67,7 +70,7 @@ public class UrlServiceTest extends ServiceBaseConfig{
                     .build());
 
             //when
-            UrlShorteningResponseDto responseDto = urlService.create(urlShorteningRequestDto, mockHttpServletRequest);
+            UrlShorteningResponseDto responseDto = urlServiceImpl.create(urlShorteningRequestDto, mockHttpServletRequest);
 
             //then
             verify(urlRepository).save(any(Url.class));
@@ -86,7 +89,7 @@ public class UrlServiceTest extends ServiceBaseConfig{
                     .build()));
 
             //when
-            UrlShorteningResponseDto responseDto = urlService.create(urlShorteningRequestDto, mockHttpServletRequest);
+            UrlShorteningResponseDto responseDto = urlServiceImpl.create(urlShorteningRequestDto, mockHttpServletRequest);
 
             //then
             verify(base62).encoding(anyLong());
@@ -119,7 +122,7 @@ public class UrlServiceTest extends ServiceBaseConfig{
                     .build());
 
             //when
-            String url = urlService.movePage("B");
+            String url = urlServiceImpl.movePage("B");
 
             //then
             verify(base62).decoding(anyString());

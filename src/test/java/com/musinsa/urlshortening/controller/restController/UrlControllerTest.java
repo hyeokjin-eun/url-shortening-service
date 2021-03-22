@@ -2,7 +2,7 @@ package com.musinsa.urlshortening.controller.restController;
 
 import com.musinsa.urlshortening.domain.dto.request.UrlShorteningRequestDto;
 import com.musinsa.urlshortening.domain.dto.response.url.UrlShorteningResponseDto;
-import com.musinsa.urlshortening.service.impl.UrlService;
+import com.musinsa.urlshortening.service.UrlService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
