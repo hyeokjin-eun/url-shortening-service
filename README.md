@@ -2,6 +2,8 @@
 
 > URL Shortening Service 입니다.
 
+<br/>
+
 ## 기술 사양
 
 ### 개발 환경
@@ -22,6 +24,8 @@
    
 5. Database
    * 개인 개발환경에서의 Database 는 H2 Database를 사용 (In Memory 방식)
+   
+<br/>
 
 ### 주요 Framework
 
@@ -32,6 +36,8 @@
 * [Spring Data Jpa](https://spring.io/projects/spring-data-jpa/)
   * Spring 에서 JPA를 편리하게 사용할 수 있도록 지원하는 프로젝트이다.
   * 별도로 명시된 협의사항이 없다면 Spring Boot 에서 제안하는 라이브러리 버젼을 사용한다.
+  
+  <br/>
   
 ## Test Case
 ### Controller
@@ -47,6 +53,8 @@
   * Repository save 정상 동작 Test 작성
   * Repository findById 정상 동작 Test 작성
   * Repository findByOriginUrl 정상 동작 Test 작성
+
+<br/>
 
 ## 환경 준비
 ### Java
@@ -81,6 +89,8 @@
   ```console
     $ gradle -v
   ```
+  
+  <br/>
 ## Build & Run
 ### Build & Test
   * Build
