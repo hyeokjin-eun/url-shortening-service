@@ -15,6 +15,7 @@
 3. 코드 형상 관리
    * 코드 형상관리는 [Git](https://git-scm.com/) 을 이용
    * 원격 저장소는 [GitHub](https://about.gitlab.com/) 으로 관리
+   * Git Branch 관리는 [Git Flow](https://woowabros.github.io/experience/2017/10/30/baemin-mobile-git-branch-strategy.html) 방식을 이용
    
 4. 코드 빌드
    * 코드 빌드 및 라이브러리 의존성 관리는 Gradle을 사용
