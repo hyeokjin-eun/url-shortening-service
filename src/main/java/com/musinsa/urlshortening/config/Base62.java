@@ -5,10 +5,15 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Base62 {
-    final int RADIX = 62;
+
     final String CODEC = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    final int RADIX = 62;
+
     final int codecLength = CODEC.length();
+
     final int minLength = codecLength * codecLength * codecLength;
+
     final int MAX_LENGTH = 8;
 
     public String encoding(Long param) {
