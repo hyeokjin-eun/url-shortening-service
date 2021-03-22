@@ -4,8 +4,6 @@ import com.musinsa.urlshortening.domain.dto.request.UrlShorteningRequestDto;
 import com.musinsa.urlshortening.domain.dto.response.ResponseDto;
 import com.musinsa.urlshortening.domain.dto.response.url.UrlShorteningResponseDto;
 import com.musinsa.urlshortening.service.UrlService;
-import com.musinsa.urlshortening.service.impl.UrlServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +22,12 @@ public class UrlController {
         this.urlService = urlService;
     }
 
+    /**
+     * URL Shortening 생성 API
+     * @param urlShorteningRequestDto Url Shortening 요청 객체
+     * @param request HttpServletRequest
+     * @return Shortening URL Response 객체
+     */
     @PostMapping("")
     public ResponseDto<UrlShorteningResponseDto> create(@RequestBody @Valid final UrlShorteningRequestDto urlShorteningRequestDto, final HttpServletRequest request) {
         return ResponseDto.OK(urlService.create(urlShorteningRequestDto, request));

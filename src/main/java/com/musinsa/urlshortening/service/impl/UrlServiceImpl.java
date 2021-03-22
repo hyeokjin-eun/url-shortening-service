@@ -23,6 +23,12 @@ public class UrlServiceImpl implements UrlService {
     @Autowired
     private UrlRepository urlRepository;
 
+    /**
+     * URL Shortening 생성
+     * @param urlShorteningRequestDto Url Shortening 요청 객체
+     * @param request HttpServletRequest
+     * @return Shortening URL Response 객체
+     */
     @Override
     public UrlShorteningResponseDto create(final UrlShorteningRequestDto urlShorteningRequestDto, final HttpServletRequest request) {
         String hostUrl = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + "/";
@@ -48,6 +54,11 @@ public class UrlServiceImpl implements UrlService {
                 .orElseThrow(UrlNotFoundException::new);
     }
 
+    /**
+     * Shortening 된 URL 받아서 원래 URL 반환
+     * @param id shortKey Shortening 된 URL Key
+     * @return 원래 URL
+     */
     @Override
     public String movePage(final String id) {
         Long index = base62.decoding(id);
