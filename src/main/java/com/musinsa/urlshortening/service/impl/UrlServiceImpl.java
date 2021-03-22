@@ -25,13 +25,13 @@ public class UrlServiceImpl implements UrlService {
 
     @Override
     public UrlShorteningResponseDto create(final UrlShorteningRequestDto urlShorteningRequestDto, final HttpServletRequest request) {
-        String hostUrl = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort();
+        String hostUrl = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + "/";
         Url searchUrl = urlRepository.findByOriginUrl(urlShorteningRequestDto.getUrl())
                 .orElse(null);
 
         if (searchUrl != null) {
             return UrlShorteningResponseDto.builder()
-                    .url(hostUrl + "/" + base62.encoding(searchUrl.getId()))
+                    .url(hostUrl + base62.encoding(searchUrl.getId()))
                     .build();
         }
 
@@ -43,7 +43,7 @@ public class UrlServiceImpl implements UrlService {
                         .build()))
                 .map(url -> base62.encoding(url.getId()))
                 .map(encodingUrl -> UrlShorteningResponseDto.builder()
-                        .url(hostUrl + "/" + encodingUrl)
+                        .url(hostUrl + encodingUrl)
                         .build())
                 .orElseThrow(UrlNotFoundException::new);
     }
@@ -53,7 +53,7 @@ public class UrlServiceImpl implements UrlService {
         Long index = base62.decoding(id);
         return urlRepository.findById(index)
                 .map(url -> {
-                    url.setCount(url.getCount() + 1);
+                    url.countIncrease();
                     return urlRepository.save(url);
                 })
                 .map(Url::getOriginUrl)

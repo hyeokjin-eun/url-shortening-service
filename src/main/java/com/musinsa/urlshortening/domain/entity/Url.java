@@ -28,4 +28,8 @@ public class Url {
 
     @Column(columnDefinition = "DATETIME COMMENT '생성 일자'", nullable = false)
     private LocalDateTime created;
+
+    public void countIncrease() {
+        this.count++;
+    }
 }
