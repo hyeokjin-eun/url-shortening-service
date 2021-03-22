@@ -49,36 +49,53 @@
 
 ## 환경 준비
 ### Java
+* Java 설치
+  ```console
+    $ sudo yum install java-1.8.0-openjdk-devel
+  ```
+  
   * Java 설치 확인
   ```console
     $ java -version
   ```
-
-  * Java 설치
-  ```console
-    $ sudo yum install java-1.8.0-openjdk-devel
-  ```
-
+  
 ### Gradle
+* Gradle 설치
+  ```console
+    $ wget https://services.gradle.org/distributions/gradle-6.3-bin.zip -P /tmp
+    $ sudo unzip -d /opt/gradle /tmp/gradle-*.zip
+    $ ls /opt/gradle/gradle-*
+  ```
+  
+  * Gradle 환경 변수 설정
+  ```console
+    $ sudo vi /etc/profile.d/gradle.sh
+    export GRADLE_HOME=/opt/gradle/gradle-6.3
+    export PATH=${GRADLE_HOME}/bin:${PATH}
+    $ sudo chmod +x /etc/profile.d/gradle.sh
+    $ source /etc/profile.d/gradle.sh
+  ```
+  
   * Gradle 설치 확인
   ```console
-    
+    $ gradle -v
   ```
-
-  * Gradle 설치
-  ```console
-    
-  ```
-  
 ## Build & Run
 ### Build & Test
+  * Build
   ```console
-      
+    $ cd PROJECT_HOME
+    $ gradle build 
   ```
   
+  * Build Test 제와
+  ```console
+    $ cd PROJECT_HOME
+    $ gradle build -x test 
+   ```
 ### Run Project
   ```console
-      
+    $ gradle bootRun
   ```
   
 ### Service Url
