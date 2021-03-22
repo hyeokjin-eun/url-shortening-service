@@ -30,7 +30,7 @@
   * 별도로 명시된 협의사항이 없다면 Spring Boot 에서 제안하는 라이브러리 버젼을 사용한다.
   
 * [Spring Data Jpa](https://spring.io/projects/spring-data-jpa/)
-  * Spring 을 이용한 프로젝트 구성의 기본이 프레임워크이다.
+  * Spring 에서 JPA를 편리하게 사용할 수 있도록 지원하는 프로젝트이다.
   * 별도로 명시된 협의사항이 없다면 Spring Boot 에서 제안하는 라이브러리 버젼을 사용한다.
   
 ## Test Case
@@ -89,7 +89,7 @@
     $ gradle build 
   ```
   
-  * Build Test 제와
+  * Build Test 제외
   ```console
     $ cd PROJECT_HOME
     $ gradle build -x test 
